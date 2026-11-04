@@ -1,0 +1,34 @@
+# Dependencias
+node_modules
+.pnp
+.pnp.js
+
+# Build
+dist
+dist-ssr
+*.local
+
+# Entorno (nunca subir claves)
+.env
+.env.local
+.env.*.local
+
+# Editores / sistema
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Archivos comprimidos (respaldos locales)
+*.zip
+*.7z
+*.rar
+
+# Netlify
+.netlify
