@@ -92,11 +92,20 @@ Reiniciá `npm run dev`. El badge de la barra superior debe decir **“Conexión
 
 ### 3.5 Deploy en Netlify
 
-1. Subí el proyecto a GitHub.
-2. En Netlify: **Add new site → Import an existing project**.
-3. Build command: `npm run build` · Publish directory: `dist` (ya está en `netlify.toml`).
+El repositorio ya está publicado en **GitHub (privado):**
+`https://github.com/HernanDiaz94/confecat-rrhh`
+
+1. Entrá a [app.netlify.com](https://app.netlify.com) → **Add new site → Import an existing project**.
+2. Elegí **GitHub** y autorizá el acceso al repo `confecat-rrhh`.
+3. Netlify lee `netlify.toml` automáticamente: build `npm run build`, publish `dist`, Node 22,
+   redirect SPA y cabeceras de seguridad. No hay que cambiar nada.
 4. En **Site settings → Environment variables** cargá `VITE_SUPABASE_URL` y `VITE_SUPABASE_ANON_KEY`.
-5. Deploy. El archivo `netlify.toml` ya incluye el redirect SPA y cabeceras de seguridad.
+   (Si todavía no están, el primer deploy sale en **modo demo**: la app funciona, pero los datos
+   quedan en el navegador del visitante.)
+5. **Deploy site**. Después de cargar las variables, hacé **Deploys → Trigger deploy → Clear cache
+   and deploy site** para que Vite las tome en el build.
+
+Cada `git push` a `main` dispara un deploy automático.
 
 **Importante:** la `anon key` es pública por diseño (protege RLS, no la clave). **Nunca** subas la `service_role key` al frontend ni a GitHub.
 
