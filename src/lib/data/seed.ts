@@ -1,7 +1,7 @@
 import type { ContractType, EmployeeInput, Position, Sector } from '@/lib/types'
 import { buildCuil } from '@/lib/utils'
 
-export const SEED_VERSION = '2026-11-06'
+export const SEED_VERSION = '2026-11-06b'
 
 const SECTORS: { nombre: string; puestos: string[] }[] = [
   {
@@ -158,12 +158,12 @@ export function buildSeed(): {
       fecha_nacimiento: person.nacimiento,
       estado_civil: index % 3 === 0 ? 'Casado/a' : index % 3 === 1 ? 'Soltero/a' : 'Unión convivencial',
       domicilio: `${DOMICILIOS[index % DOMICILIOS.length]}, ${CIUDAD}`,
-      telefono: `11-${4000 + index * 13}-${1000 + index * 37}`,
+      telefono: `383-4${String(10 + ((index * 7) % 90)).padStart(2, '0')}-${1000 + ((index * 37) % 9000)}`,
       email: `${person.nombre.toLowerCase()}.${person.apellido.toLowerCase()}@confecat.com.ar`
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, ''),
       contacto_emergencia_nombre: index % 2 === 0 ? 'Familiar directo' : 'Cónyuge',
-      contacto_emergencia_telefono: `11-${5000 + index * 11}-${2000 + index * 29}`,
+      contacto_emergencia_telefono: `383-4${String(20 + ((index * 9) % 80)).padStart(2, '0')}-${2000 + ((index * 29) % 8000)}`,
       fecha_ingreso: person.ingreso,
       fecha_egreso: person.egreso ?? null,
       sector_id: sector?.id ?? null,
