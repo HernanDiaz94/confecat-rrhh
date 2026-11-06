@@ -1,7 +1,7 @@
 import type { ContractType, EmployeeInput, Position, Sector } from '@/lib/types'
 import { buildCuil } from '@/lib/utils'
 
-export const SEED_VERSION = '2026-11-01'
+export const SEED_VERSION = '2026-11-06'
 
 const SECTORS: { nombre: string; puestos: string[] }[] = [
   {
@@ -17,6 +17,42 @@ const SECTORS: { nombre: string; puestos: string[] }[] = [
 ]
 
 const CONTRACTS = ['Permanente', 'Plazo fijo', 'Temporada', 'Pasantía']
+
+// Domicilios de ejemplo en San Fernando del Valle de Catamarca.
+const DOMICILIOS = [
+  'Av. Güemes 245, Bº Centro',
+  'Av. Ocampo 1180, Bº Norte',
+  'Av. Belgrano 640, Bº Centro',
+  'Calle Sarmiento 512, Bº La Chacarita',
+  'Av. Gobernador Ramón Castillo 1450, Bº Parque América',
+  'Calle 25 de Mayo 380, Bº Centro',
+  'Av. Alem 905, Bº Norte',
+  'Calle Rivadavia 1230, Bº Villa Cubas',
+  'Av. Los Terebintos 320, Bº Los Terebintos',
+  'Calle San Martín 470, Bº Centro',
+  'Av. Virgen del Valle 2140, Bº La Chacarita',
+  'Calle Chacabuco 860, Bº San Ramón',
+  'Av. Acosta Villafañe 1020, Bº General Paz',
+  'Calle Junín 715, Bº Centro',
+  'Av. Presidente Castillo 1890, Bº El Milagro',
+  'Calle Maipú 340, Bº Norte',
+  'Av. Juan Domingo Perón 2560, Bº La Tablada',
+  'Calle La Rioja 605, Bº Centro',
+  'Av. Los Álamos 175, Bº Los Álamos',
+  'Calle Catamarca 990, Bº Villa Cubas',
+  'Av. Güemes 1340, Bº Norte',
+  'Calle Tucumán 425, Bº Centro',
+  'Av. Ocampo 2310, Bº Santa Lucía',
+  'Calle Salta 680, Bº San Ramón',
+  'Av. Gobernador Ramón Castillo 760, Bº Parque América',
+  'Calle República 1115, Bº La Chacarita',
+  'Av. Alem 1560, Bº General Paz',
+  'Calle Esquiú 230, Bº Centro',
+  'Av. Los Terebintos 1480, Bº Los Terebintos',
+  'Calle 9 de Julio 555, Bº Villa Cubas',
+]
+
+const CIUDAD = 'San Fernando del Valle de Catamarca'
 
 interface SeedPerson {
   apellido: string
@@ -121,7 +157,7 @@ export function buildSeed(): {
       nombre: person.nombre,
       fecha_nacimiento: person.nacimiento,
       estado_civil: index % 3 === 0 ? 'Casado/a' : index % 3 === 1 ? 'Soltero/a' : 'Unión convivencial',
-      domicilio: `Av. Siempre Viva ${100 + index * 7}, San Justo`,
+      domicilio: `${DOMICILIOS[index % DOMICILIOS.length]}, ${CIUDAD}`,
       telefono: `11-${4000 + index * 13}-${1000 + index * 37}`,
       email: `${person.nombre.toLowerCase()}.${person.apellido.toLowerCase()}@confecat.com.ar`
         .normalize('NFD')
