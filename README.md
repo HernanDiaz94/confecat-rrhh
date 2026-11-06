@@ -17,9 +17,11 @@ Abrí `http://localhost:5173` y usá cualquiera de estos accesos:
 
 | Usuario | Contraseña | Rol | Permisos |
 |---|---|---|---|
-| `admin@confecat.com` | `confecat123` | Administrador | Todo, incluidos catálogos |
-| `rrhh@confecat.com` | `confecat123` | RRHH | Legajos e importación |
-| `consulta@confecat.com` | `confecat123` | Consulta | Solo lectura |
+| `admin` | `demo` | Administrador | Todo, incluidos catálogos |
+| `rrhh` | `demo` | RRHH | Legajos e importación |
+| `consulta` | `demo` | Consulta | Solo lectura |
+
+> El campo acepta solo el nombre de usuario (`admin`) o el email completo (`admin@confecat.com`).
 
 Si no hay variables de Supabase configuradas, la aplicación arranca en **modo demo**: los datos se guardan en `localStorage` del navegador y se cargan 30 legajos de ejemplo. Es ideal para probar el flujo completo, pero **no usar en producción**.
 

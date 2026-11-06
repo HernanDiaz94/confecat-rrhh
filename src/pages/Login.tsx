@@ -164,28 +164,31 @@ export function LoginPage() {
                 para completar el formulario.
               </p>
               <div className="mt-2.5 space-y-1.5">
-                {DEMO_USERS.map((demoUser) => (
-                  <button
-                    key={demoUser.email}
-                    type="button"
-                    onClick={() => {
-                      setIdentifier(demoUser.email)
-                      setPassword(DEMO_PASSWORD)
-                      setError(null)
-                    }}
-                    className="flex w-full items-center justify-between gap-3 rounded-lg border border-amber-200 bg-white px-2.5 py-1.5 text-left text-[11px] transition hover:border-amber-400 hover:bg-amber-100/50"
-                  >
-                    <span className="min-w-0">
-                      <span className="block truncate font-semibold text-slate-800">
-                        {demoUser.nombre}
+                {DEMO_USERS.map((demoUser) => {
+                  const username = demoUser.email.split('@')[0]
+                  return (
+                    <button
+                      key={demoUser.email}
+                      type="button"
+                      onClick={() => {
+                        setIdentifier(username)
+                        setPassword(DEMO_PASSWORD)
+                        setError(null)
+                      }}
+                      className="flex w-full items-center justify-between gap-3 rounded-lg border border-amber-200 bg-white px-2.5 py-1.5 text-left text-[11px] transition hover:border-amber-400 hover:bg-amber-100/50"
+                    >
+                      <span className="min-w-0">
+                        <span className="block truncate font-semibold text-slate-800">
+                          {demoUser.nombre}
+                        </span>
+                        <span className="block truncate font-mono text-slate-500">{username}</span>
                       </span>
-                      <span className="block truncate text-slate-500">{demoUser.email}</span>
-                    </span>
-                    <span className="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 font-semibold text-slate-500">
-                      {ROLE_LABELS[demoUser.rol]}
-                    </span>
-                  </button>
-                ))}
+                      <span className="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 font-semibold text-slate-500">
+                        {ROLE_LABELS[demoUser.rol]}
+                      </span>
+                    </button>
+                  )
+                })}
               </div>
             </Card>
           )}

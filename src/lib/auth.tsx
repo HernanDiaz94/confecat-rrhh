@@ -4,7 +4,7 @@ import type { Role, SessionUser } from '@/lib/types'
 import { supabase } from '@/lib/supabase'
 import { setDemoActor } from '@/lib/data/demo'
 
-export const DEMO_PASSWORD = 'confecat123'
+export const DEMO_PASSWORD = 'demo'
 
 export const DEMO_USERS: { email: string; nombre: string; rol: Role }[] = [
   { email: 'admin@confecat.com', nombre: 'Marcela Duarte', rol: 'admin' },
